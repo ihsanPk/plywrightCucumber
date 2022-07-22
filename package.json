@@ -1,0 +1,30 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "Playwright framework with typescript using BDD approach (cucumber)",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/pages/*.ts --require src/utilities/*.ts --require src/pages/support/world.ts --require src/step_definitions/*.ts -f json:./reports/json/cucumber-report.json --publish-quiet -f @cucumber/pretty-formatter",
+    "cucumber-tag": "cucumber-js src/features/ --tags @Login --require-module ts-node/register --require src/pages/*.ts --require src/utilities/*.ts --require src/pages/support/*.ts --require src/step_definitions/*.ts -f json:./reports/json/cucumber-report.json --publish-quiet -f @cucumber/pretty-formatter",
+    "api-tags": "cucumber-js src/features/ --tags @weatherUpdates --require-module ts-node/register --require src/pages/*.ts --require src/utilities/*.ts --require src/step_definitions/*.ts -f json:./reports/json/cucumber-report.json --publish-quiet -f @cucumber/pretty-formatter",
+    "report": "node src/utilities/report.mjs"
+  },
+
+  "author": "Faiza A.",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.23.1",
+    "@types/node": "^18.0.3",
+    "playwright": "^1.23.1",
+    "playwright-cli": "^0.180.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "chai": "^4.3.6",
+    "cucumber-html-reporter": "^5.5.0"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.4.0"
+  }
+}
